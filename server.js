@@ -49,6 +49,22 @@ app.post('/submit', (req, res) => {
     }
 });
 
+app.post('/clear', (req, res) => {
+  const { password } = req.body;
+
+  if (password !== PASSWORD) {
+    return res.status(401).json({ error: 'Неверный пароль' });
+  }
+
+  try {
+    fs.writeFileSync(DATA_FILE, JSON.stringify([], null, 2), 'utf8');
+    res.json({ success: true, message: 'Данные очищены' });
+  } catch (e) {
+    console.error('Ошибка очистки файла:', e);
+    res.status(500).json({ error: 'Ошибка при очистке данных' });
+  }
+});
+
 app.get('/results', (req, res) => {
     const { password } = req.query;
 

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Дневник питания</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<header>
+    <h1>Дневник питания</h1>
+</header>
+
+<main>
+    <section class="container">
+        <form id="questionForm" novalidate>
+            <fieldset class="step active">
+                <label for="password">Пароль для входа</label>
+                <input
+                        id="password"
+                        name="password"
+                        type="password"
+                        required
+                        placeholder="Введите пароль"
+                        autocomplete="current-password"
+                />
+            </fieldset>
+
+            <fieldset class="step">
+                <label for="meal">Прием пищи</label>
+                <input
+                        list="meal-options"
+                        id="meal"
+                        name="meal"
+                        type="text"
+                        required
+                        placeholder="Завтрак, обед, ужин или другое"
+                        autocomplete="off"
+                />
+                <datalist id="meal-options">
+                    <option value="Завтрак"></option>
+                    <option value="Обед"></option>
+                    <option value="Ужин"></option>
+                    <option value="Перекус"></option>
+                </datalist>
+            </fieldset>
+
+            <fieldset class="step">
+                <label for="food">Что вы съели?</label>
+                <textarea id="food" name="food" rows="3" required placeholder="Опишите продукты и блюда..."></textarea>
+            </fieldset>
+
+            <fieldset class="step">
+                <label for="drink">Что вы пили?</label>
+                <textarea id="drink" name="drink" rows="2" required placeholder="Например, вода, чай, сок..."></textarea>
+            </fieldset>
+
+            <fieldset class="step">
+                <label for="context">С кем, где, во сколько, чем занимались параллельно?</label>
+                <textarea id="context" name="context" rows="4" required placeholder="Опишите обстоятельства приема пищи..."></textarea>
+            </fieldset>
+
+            <nav class="buttons">
+                <button type="button" id="prevBtn" disabled>Назад</button>
+                <button type="button" id="nextBtn">Далее</button>
+                <button type="submit" id="submitBtn" style="display: none;">Отправить</button>
+            </nav>
+        </form>
+
+        <output id="result" aria-live="polite"></output>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2025 Дневник питания</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

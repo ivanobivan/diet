@@ -35,7 +35,7 @@ nextBtn.addEventListener('click', async () => {
         const password = currentInput.value;
 
         try {
-            const response = await fetch('http://localhost:3000/login', {
+            const response = await fetch('/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ password })
@@ -84,7 +84,7 @@ form.addEventListener('submit', async (e) => {
     data.currentTime = now.toTimeString().split(' ')[0];
 
     try {
-        const response = await fetch('http://localhost:3000/submit', {
+        const response = await fetch('/submit', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
